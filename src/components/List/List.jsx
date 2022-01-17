@@ -9,6 +9,24 @@ const List = () => {
   const [type, setType] = useState("");
   const [rating, setRating] = useState("");
 
+  const places = [
+    {name: "Cool Place"},
+    {name: "Best Beer"},
+    {name: "Cool Place"},
+    {name: "Best Beer"},
+    {name: "Cool Place"},
+    {name: "Best Beer"},
+    {name: "Cool Place"},
+    {name: "Best Beer"},
+    {name: "Cool Place"},
+    {name: "Best Beer"},
+    {name: "Cool Place"},
+    {name: "Best Beer"},
+    {name: "Cool Place"},
+    {name: "Best Beer"},
+    {name: "Best Steak"}
+  ]
+
   return (
     <div className={classes.container}>
       <Typography variant="h4">Restaurants, Hotels &amp; Attractions around you</Typography>
@@ -30,7 +48,13 @@ const List = () => {
             </Select>
           </FormControl>
           <Grid container spacing={3} className={classes.list}>
-            
+              {places?.map((place, i) => {
+                return(
+                  <Grid item xs={12} key={i}>
+                    <PlaceDetails place={place} />
+                  </Grid>
+                )
+              })}
           </Grid>
     </div>
   )
